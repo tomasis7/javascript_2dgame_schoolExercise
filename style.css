@@ -7,3 +7,9 @@ body {
   justify-content: center;
   align-items: center;
 }
+
+p {
+  font-size: 1.5em;
+  text-align: center;
+  color: yellowgreen;
+}
