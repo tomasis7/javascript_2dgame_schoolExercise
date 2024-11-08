@@ -1,3 +1,5 @@
+/* assignment flexible web development
+
 window.addEventListener("DOMContentLoaded", main);
 
 function main() {
@@ -22,10 +24,8 @@ function loadKitchenScene() {
   container.innerHTML = "";
 
   const image1 = document.createElement("img");
-  image1.src = "images/kitchen.gif";
-
-  const image2 = document.createElement("img");
-  image2.src = "images/kitchen2.gif";
+  image1.src = ".....";
 
   container.append(image1, image2);
 }
+*/
