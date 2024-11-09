@@ -67,9 +67,10 @@ function loadRoom0Scene(container) {
   const keyimg1 = document.createElement("img");
   keyimg1.src = "images/key1.gif";
   keyimg1.style.position = "absolute";
-  keyimg1.style.top = "75%";
-  keyimg1.style.left = "18%";
-  keyimg1.style.transform = "translate(-50%, -50%)";
+  keyimg1.style.top = "72%";
+  keyimg1.style.left = "15%";
+  // keyimg1.style.transform = "translate(-50%, -50%)";
+  keyimg1.style.opacity = "0.5";
   keyimg1.style.width = "3%";
   keyimg1.style.height = "3%";
 
@@ -91,23 +92,50 @@ function loadRoom0Scene(container) {
 function loadRoom1Scene(container) {
   container.innerHTML = "";
 
+  const imageContainer = document.createElement("div");
+  imageContainer.style.position = "relative";
+  imageContainer.style.display = "flex";
+  imageContainer.style.justifyContent = "center";
+  imageContainer.style.alignItems = "center";
+
   const image3 = document.createElement("img");
   image3.src = "images/leftarrowbutton.gif";
   image3.onclick = () => loadRoom0Scene(container);
 
-  const image6 = document.createElement("img");
-  image6.src = "images/room1.gif";
+  const image6div = document.createElement("div");
+  image6div.style.position = "relative";
+
+  const roomImage1 = document.createElement("img");
+  roomImage1.src = "images/room1.gif";
+  roomImage1.style.width = "100%";
+  roomImage1.style.height = "100%";
 
   const image5 = document.createElement("img");
   image5.src = "images/rightarrowbutton.gif";
   image5.onclick = () => loadRoom2Scene(container);
 
+  const keyimg2 = document.createElement("img");
+  keyimg2.src = "images/key2.gif";
+  keyimg2.style.position = "absolute";
+  keyimg2.style.top = "54.5%";
+  keyimg2.style.left = "54%";
+  keyimg2.style.opacity = "0.5";
+  keyimg2.style.width = "3%";
+  keyimg2.style.height = "3%";
+
+  image6div.appendChild(roomImage1);
+  image6div.appendChild(keyimg2);
+
+  imageContainer.appendChild(image3);
+  imageContainer.appendChild(image6div);
+  imageContainer.appendChild(image5);
+
+  container.appendChild(imageContainer);
+
   container.style.display = "flex";
   container.style.justifyContent = "center";
   container.style.alignItems = "center";
   container.style.flexDirection = "row";
-
-  container.append(image3, image6, image5);
 }
 function loadRoom2Scene(container) {
   container.innerHTML = "";
@@ -133,45 +161,101 @@ function loadRoom2Scene(container) {
 function loadRoom3Scene(container) {
   container.innerHTML = "";
 
+  const imageContainer = document.createElement("div");
+  imageContainer.style.position = "relative";
+  imageContainer.style.display = "flex";
+  imageContainer.style.justifyContent = "center";
+  imageContainer.style.alignItems = "center";
+
   const image3 = document.createElement("img");
   image3.src = "images/leftarrowbutton.gif";
   image3.onclick = () => loadRoom2Scene(container);
 
-  const image8 = document.createElement("img");
-  image8.src = "images/room3.gif";
+  const image8div = document.createElement("div");
+  image8div.style.position = "relative";
+
+  const roomImage3 = document.createElement("img");
+  roomImage3.src = "images/room3.gif";
+  roomImage3.style.width = "100%";
+  roomImage3.style.height = "100%";
 
   const image5 = document.createElement("img");
   image5.src = "images/rightarrowbutton.gif";
   image5.onclick = () => loadRoom4Scene(container);
 
+  const keyimg3 = document.createElement("img");
+  keyimg3.src = "images/key3.gif";
+  keyimg3.style.position = "absolute";
+  keyimg3.style.top = "58%";
+  keyimg3.style.left = "85%";
+  keyimg3.style.opacity = "0.2";
+  keyimg3.style.width = "3%";
+  keyimg3.style.height = "3%";
+
+  image8div.appendChild(roomImage3);
+  image8div.appendChild(keyimg3);
+
+  imageContainer.appendChild(image3);
+  imageContainer.appendChild(image8div);
+  imageContainer.appendChild(image5);
+
+  container.appendChild(imageContainer);
+
   container.style.display = "flex";
   container.style.justifyContent = "center";
   container.style.alignItems = "center";
   container.style.flexDirection = "row";
-
-  container.append(image3, image8, image5);
 }
+
 function loadRoom4Scene(container) {
   container.innerHTML = "";
+
+  const imageContainer = document.createElement("div");
+  imageContainer.style.position = "relative";
+  imageContainer.style.display = "flex";
+  imageContainer.style.justifyContent = "center";
+  imageContainer.style.alignItems = "center";
 
   const image3 = document.createElement("img");
   image3.src = "images/leftarrowbutton.gif";
   image3.onclick = () => loadRoom3Scene(container);
 
-  const image9 = document.createElement("img");
-  image9.src = "images/room4.gif";
+  const image9div = document.createElement("div");
+  image9div.style.position = "relative";
+
+  const roomImage4 = document.createElement("img");
+  roomImage4.src = "images/room4.gif";
+  roomImage4.style.width = "100%";
+  roomImage4.style.height = "100%";
 
   const image5 = document.createElement("img");
   image5.src = "images/rightarrowbutton.gif";
   image5.onclick = () => loadFinalRoomScene(container);
 
+  const keyimg4 = document.createElement("img");
+  keyimg4.src = "images/key4.gif";
+  keyimg4.style.position = "absolute";
+  keyimg4.style.top = "50%";
+  keyimg4.style.left = "50%";
+  keyimg4.style.opacity = "0.5";
+  keyimg4.style.width = "3%";
+  keyimg4.style.height = "3%";
+
+  image9div.appendChild(roomImage4);
+  image9div.appendChild(keyimg4);
+
+  imageContainer.appendChild(image3);
+  imageContainer.appendChild(image9div);
+  imageContainer.appendChild(image5);
+
+  container.appendChild(imageContainer);
+
   container.style.display = "flex";
   container.style.justifyContent = "center";
   container.style.alignItems = "center";
   container.style.flexDirection = "row";
-
-  container.append(image3, image9, image5);
 }
+
 function loadFinalRoomScene(container) {
   container.innerHTML = "";
 
