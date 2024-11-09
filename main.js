@@ -1,5 +1,7 @@
 window.addEventListener("DOMContentLoaded", main);
 
+let key1Found = false;
+
 function main() {
   const container = document.getElementById("container");
   loadStartScene(container);
@@ -68,12 +70,28 @@ function loadRoom0Scene(container) {
   const keyimg1 = document.createElement("img");
   keyimg1.src = "images/key1.gif";
   keyimg1.style.position = "absolute";
-  keyimg1.style.top = "72%";
-  keyimg1.style.left = "15%";
-  // keyimg1.style.transform = "translate(-50%, -50%)";
-  keyimg1.style.opacity = "0.5";
+  if (key1Found) {
+    keyimg1.style.top = "1%";
+    keyimg1.style.left = "1%";
+    keyimg1.style.width = "10%";
+    keyimg1.style.height = "10%";
+    keyimg1.style.opacity = "1";
+    keyimg1.onclick = null;
+  } else {
+    keyimg1.style.top = "72%";
+    keyimg1.style.left = "15%";
+    keyimg1.style.opacity = "0.5";
+    keyimg1.onclick = () => foundKey1(container);
+  }
   keyimg1.style.width = "3%";
   keyimg1.style.height = "3%";
+  // keyimg1.style.top = "72%";
+  // keyimg1.style.left = "15%";
+  // // keyimg1.style.transform = "translate(-50%, -50%)";
+  // keyimg1.style.opacity = "0.5";
+  // keyimg1.style.width = "3%";
+  // keyimg1.style.height = "3%";
+  // keyimg1.onclick = () => foundKey1(container);
 
   const text = document.createElement("h1");
   text.textContent =
@@ -135,8 +153,19 @@ function loadRoom1Scene(container) {
   keyimg2.style.width = "3%";
   keyimg2.style.height = "3%";
 
+  const text = document.createElement("h1");
+  text.textContent =
+    "You don't have all four keys yet. Keep exploring the rooms to find them all and unlock the door.";
+  text.className = "large green";
+  text.style.position = "absolute";
+  text.style.top = "99%";
+  text.style.left = "1%";
+  text.style.transform = "translateX(-50%, -50%)";
+  text.style.direction = "ltr";
+
   image6div.appendChild(roomImage1);
   image6div.appendChild(keyimg2);
+  image6div.appendChild(text);
 
   imageContainer.appendChild(image3);
   imageContainer.appendChild(image6div);
@@ -144,10 +173,10 @@ function loadRoom1Scene(container) {
 
   container.appendChild(imageContainer);
 
-  container.style.display = "flex";
-  container.style.justifyContent = "center";
-  container.style.alignItems = "center";
-  container.style.flexDirection = "row";
+  // container.style.display = "flex";
+  // container.style.justifyContent = "center";
+  // container.style.alignItems = "center";
+  // container.style.flexDirection = "row";
 }
 function loadRoom2Scene(container) {
   container.innerHTML = "";
@@ -163,12 +192,23 @@ function loadRoom2Scene(container) {
   image5.src = "images/rightarrowbutton.gif";
   image5.onclick = () => loadRoom3Scene(container);
 
+  const text = document.createElement("h1");
+  text.textContent =
+    "You don't have all four keys yet. Keep exploring the rooms to find them all and unlock the door.";
+  text.className = "large green";
+  text.style.position = "absolute";
+  text.style.top = "99%";
+  text.style.left = "1%";
+  text.style.transform = "translateX(-50%, -50%)";
+  text.style.direction = "ltr";
+  text.style.width = "580px";
+
   container.style.display = "flex";
   container.style.justifyContent = "center";
   container.style.alignItems = "center";
   container.style.flexDirection = "row";
 
-  container.append(image3, image7, image5);
+  container.append(image3, image7, image5, text);
 }
 function loadRoom3Scene(container) {
   container.innerHTML = "";
@@ -204,8 +244,19 @@ function loadRoom3Scene(container) {
   keyimg3.style.width = "3%";
   keyimg3.style.height = "3%";
 
+  const text = document.createElement("h1");
+  text.textContent =
+    "You don't have all four keys yet. Keep exploring the rooms to find them all and unlock the door.";
+  text.className = "large green";
+  text.style.position = "absolute";
+  text.style.top = "99%";
+  text.style.left = "1%";
+  text.style.transform = "translateX(-50%, -50%)";
+  text.style.direction = "ltr";
+
   image8div.appendChild(roomImage3);
   image8div.appendChild(keyimg3);
+  image8div.appendChild(text);
 
   imageContainer.appendChild(image3);
   imageContainer.appendChild(image8div);
@@ -253,8 +304,19 @@ function loadRoom4Scene(container) {
   keyimg4.style.width = "3%";
   keyimg4.style.height = "3%";
 
+  const text = document.createElement("h1");
+  text.textContent =
+    "You don't have all four keys yet. Keep exploring the rooms to find them all and unlock the door.";
+  text.className = "large green";
+  text.style.position = "absolute";
+  text.style.top = "99%";
+  text.style.left = "1%";
+  text.style.transform = "translateX(-50%, -50%)";
+  text.style.direction = "ltr";
+
   image9div.appendChild(roomImage4);
   image9div.appendChild(keyimg4);
+  image9div.appendChild(text);
 
   imageContainer.appendChild(image3);
   imageContainer.appendChild(image9div);
@@ -289,7 +351,7 @@ function loadFinalRoomScene(container) {
 
   const text = document.createElement("h1");
   text.textContent =
-    "You dont have all four keys. Keep looking around the rooms. You need to find all four keys to unlock the door.";
+    "You don't have all four keys yet. Keep exploring the rooms to find them all and unlock the door.";
   text.className = "large green";
   text.style.position = "absolute";
   text.style.top = "99%";
@@ -299,4 +361,16 @@ function loadFinalRoomScene(container) {
   text.style.width = "580px";
 
   container.append(image3, image10, image5, text);
+}
+
+function foundKey1(container) {
+  key1Found = true;
+  const keyimg1 = document.querySelector("img[src='images/key1.gif']");
+  keyimg1.style.opacity = "1";
+  keyimg1.onclick = null;
+  keyimg1.style.top = "1%";
+  keyimg1.style.left = "1%";
+  keyimg1.style.width = "10%";
+  keyimg1.style.height = "10%";
+  // keyimg1.style.translate = "translate(-50%, -50%)";
 }
