@@ -47,6 +47,7 @@ function loadRoom0Scene(container) {
   imageContainer.style.display = "flex";
   imageContainer.style.justifyContent = "center";
   imageContainer.style.alignItems = "center";
+  imageContainer.style.flexDirection = "row";
 
   const image3 = document.createElement("img");
   image3.src = "images/leftarrowbutton.gif";
@@ -74,8 +75,19 @@ function loadRoom0Scene(container) {
   keyimg1.style.width = "3%";
   keyimg1.style.height = "3%";
 
+  const text = document.createElement("h1");
+  text.textContent =
+    "You are trapped. Find the keys to escape. Collect all four keys to unlock the door. Explore this room and the next to locate the keys.";
+  text.className = "large green";
+  text.style.position = "absolute";
+  text.style.top = "99%";
+  text.style.left = "1%";
+  text.style.transform = "translateX(-50%, -50%)";
+  text.style.direction = "ltr";
+
   image4div.appendChild(roomImage0);
   image4div.appendChild(keyimg1);
+  image4div.appendChild(text);
 
   imageContainer.appendChild(image3);
   imageContainer.appendChild(image4div);
@@ -83,10 +95,10 @@ function loadRoom0Scene(container) {
 
   container.appendChild(imageContainer);
 
-  container.style.display = "flex";
-  container.style.justifyContent = "center";
-  container.style.alignItems = "center";
-  container.style.flexDirection = "row";
+  // container.style.display = "flex";
+  // container.style.justifyContent = "center";
+  // container.style.alignItems = "center";
+  // container.style.flexDirection = "row";
 }
 
 function loadRoom1Scene(container) {
@@ -275,5 +287,16 @@ function loadFinalRoomScene(container) {
   container.style.alignItems = "center";
   container.style.flexDirection = "row";
 
-  container.append(image3, image10, image5);
+  const text = document.createElement("h1");
+  text.textContent =
+    "You dont have all four keys. Keep looking around the rooms. You need to find all four keys to unlock the door.";
+  text.className = "large green";
+  text.style.position = "absolute";
+  text.style.top = "99%";
+  text.style.left = "1%";
+  text.style.transform = "translateX(-50%, -50%)";
+  text.style.direction = "ltr";
+  text.style.width = "580px";
+
+  container.append(image3, image10, image5, text);
 }

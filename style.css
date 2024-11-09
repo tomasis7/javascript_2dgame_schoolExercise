@@ -13,3 +13,18 @@ p {
   text-align: center;
   color: yellowgreen;
 }
+
+@font-face {
+  font-family: "custom";
+  src: url("custom.ttf") format("truetype");
+}
+
+.large.green {
+  padding: 10px;
+  font-family: "custom";
+  font-size: 2rem;
+  color: green;
+  /* border-color: aliceblue;
+  border-style: dotted;
+  border-radius: 5px; */
+}
