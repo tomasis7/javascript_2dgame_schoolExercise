@@ -356,18 +356,122 @@ function loadRoom1Scene(container) {
 function loadRoom2Scene(container) {
   container.innerHTML = "";
 
+  const imageContainer = document.createElement("div");
+  imageContainer.style.position = "relative";
+  imageContainer.style.display = "flex";
+  imageContainer.style.justifyContent = "center";
+  imageContainer.style.alignItems = "center";
+  imageContainer.style.flexDirection = "row";
+
   const image3 = document.createElement("img");
   image3.src = "images/leftarrowbutton.gif";
+  image3.style.zIndex = "1";
   image3.onclick = () => loadRoom1Scene(container);
+
+  const image4div = document.createElement("div");
+  image4div.style.position = "relative";
 
   const image7 = document.createElement("img");
   image7.src = "images/room2.gif";
+  image7.style.width = "100%";
+  image7.style.height = "100%";
+  image7.style.zIndex = "0";
 
   const image5 = document.createElement("img");
   image5.src = "images/rightarrowbutton.gif";
+  image3.style.zIndex = "1";
   image5.onclick = function () {
     loadRoom3Scene(container);
   };
+
+  const keyimg1 = document.createElement("img");
+  keyimg1.src = "images/key1.gif";
+  keyimg1.style.position = "absolute";
+  keyimg1.style.zIndex = "1";
+  if (key1Found) {
+    keyimg1.style.opacity = "1";
+    keyimg1.onclick = null;
+    keyimg1.style.top = "4%";
+    keyimg1.style.left = "2%";
+    keyimg1.style.width = "10%";
+    keyimg1.style.height = "10%";
+    keyimg1.style.transform = "translate(-50%, -50%)";
+    keyimg1.style.zIndex = "0";
+  } else {
+    keyimg1.style.top = "74%";
+    keyimg1.style.left = "15%";
+    keyimg1.style.opacity = "0";
+    keyimg1.style.width = "3%";
+    keyimg1.style.height = "3%";
+    keyimg1.style.transform = "translate(-50%, -50%)";
+    keyimg1.onclick = () => handleKey1Found(container);
+    keyimg1.style.zIndex = "1";
+  }
+
+  const keyimg2 = document.createElement("img");
+  keyimg2.src = "images/key2.gif";
+  keyimg2.style.position = "absolute";
+  if (key2Found) {
+    keyimg2.style.opacity = "1";
+    keyimg2.onclick = null;
+    keyimg2.style.top = "4%";
+    keyimg2.style.left = "10%";
+    keyimg2.style.width = "10%";
+    keyimg2.style.height = "10%";
+    keyimg2.style.transform = "translate(-50%, -50%)";
+    keyimg2.style.zIndex = "0";
+  } else {
+    keyimg2.style.top = "54.5%";
+    keyimg2.style.left = "54%";
+    keyimg2.style.opacity = "0";
+    keyimg2.style.width = "3%";
+    keyimg2.style.height = "3%";
+    keyimg2.onclick = () => handleKey2Found(keyimg2);
+    keyimg2.style.zIndex = "1";
+  }
+
+  const keyimg3 = document.createElement("img");
+  keyimg3.src = "images/key3.gif";
+  keyimg3.style.position = "absolute";
+  if (key3Found) {
+    keyimg3.style.opacity = "1";
+    keyimg3.onclick = null;
+    keyimg3.style.top = "4%";
+    keyimg3.style.left = "20%";
+    keyimg3.style.width = "10%";
+    keyimg3.style.height = "10%";
+    keyimg3.style.transform = "translate(-50%, -50%)";
+    keyimg3.style.zIndex = "0";
+  } else {
+    keyimg3.style.top = "58%";
+    keyimg3.style.left = "85%";
+    keyimg3.style.opacity = "0";
+    keyimg3.style.width = "3%";
+    keyimg3.style.height = "3%";
+    keyimg3.onclick = () => handleKey3Found(keyimg3);
+    keyimg3.style.zIndex = "1";
+  }
+
+  const keyimg4 = document.createElement("img");
+  keyimg4.src = "images/key4.gif";
+  keyimg4.style.position = "absolute";
+  if (key4Found) {
+    keyimg4.style.opacity = "1";
+    keyimg4.onclick = null;
+    keyimg4.style.top = "4%";
+    keyimg4.style.left = "30%";
+    keyimg4.style.width = "10%";
+    keyimg4.style.height = "10%";
+    keyimg4.style.transform = "translate(-50%, -50%)";
+    keyimg4.style.zIndex = "1";
+  } else {
+    keyimg4.style.top = "50%";
+    keyimg4.style.left = "50%";
+    keyimg4.style.opacity = "0";
+    keyimg4.style.width = "3%";
+    keyimg4.style.height = "3%";
+    keyimg4.onclick = () => handleKey4Found(keyimg4);
+  }
 
   const text = document.createElement("h1");
   text.textContent =
@@ -378,14 +482,19 @@ function loadRoom2Scene(container) {
   text.style.left = "1%";
   text.style.transform = "translateX(-50%, -50%)";
   text.style.direction = "ltr";
-  text.style.width = "580px";
 
-  container.style.display = "flex";
-  container.style.justifyContent = "center";
-  container.style.alignItems = "center";
-  container.style.flexDirection = "row";
+  image4div.appendChild(image7);
+  image4div.appendChild(keyimg1);
+  image4div.appendChild(text);
+  image4div.appendChild(keyimg2);
+  image4div.appendChild(keyimg3);
+  image4div.appendChild(keyimg4);
 
-  container.append(image3, image7, image5, text);
+  imageContainer.appendChild(image3);
+  imageContainer.appendChild(image4div);
+  imageContainer.appendChild(image5);
+
+  container.appendChild(imageContainer);
 }
 function loadRoom3Scene(container) {
   container.innerHTML = "";
@@ -686,20 +795,119 @@ function loadRoom4Scene(container) {
 function loadFinalRoomScene(container) {
   container.innerHTML = "";
 
+  const imageContainer = document.createElement("div");
+  imageContainer.style.position = "relative";
+  imageContainer.style.display = "flex";
+  imageContainer.style.justifyContent = "center";
+  imageContainer.style.alignItems = "center";
+  imageContainer.style.flexDirection = "row";
+
   const image3 = document.createElement("img");
   image3.src = "images/leftarrowbutton.gif";
+  image3.style.zIndex = "1";
   image3.onclick = () => loadRoom4Scene(container);
+
+  const image4div = document.createElement("div");
+  image4div.style.position = "relative";
 
   const image10 = document.createElement("img");
   image10.src = "images/doorwithfourlocks.gif";
+  image10.style.width = "100%";
+  image10.style.height = "100%";
+  image10.style.zIndex = "0";
 
   const image5 = document.createElement("img");
   image5.src = "images/rightarrowbutton.gif";
+  image5.style.zIndex = "1";
 
-  container.style.display = "flex";
-  container.style.justifyContent = "center";
-  container.style.alignItems = "center";
-  container.style.flexDirection = "row";
+  const keyimg1 = document.createElement("img");
+  keyimg1.src = "images/key1.gif";
+  keyimg1.style.position = "absolute";
+  keyimg1.style.zIndex = "1";
+  if (key1Found) {
+    keyimg1.style.opacity = "1";
+    keyimg1.onclick = null;
+    keyimg1.style.top = "4%";
+    keyimg1.style.left = "2%";
+    keyimg1.style.width = "10%";
+    keyimg1.style.height = "10%";
+    keyimg1.style.transform = "translate(-50%, -50%)";
+    keyimg1.style.zIndex = "0";
+  } else {
+    keyimg1.style.top = "74%";
+    keyimg1.style.left = "15%";
+    keyimg1.style.opacity = "0";
+    keyimg1.style.width = "3%";
+    keyimg1.style.height = "3%";
+    keyimg1.style.transform = "translate(-50%, -50%)";
+    keyimg1.onclick = () => handleKey1Found(container);
+    keyimg1.style.zIndex = "1";
+  }
+
+  const keyimg2 = document.createElement("img");
+  keyimg2.src = "images/key2.gif";
+  keyimg2.style.position = "absolute";
+  if (key2Found) {
+    keyimg2.style.opacity = "1";
+    keyimg2.onclick = null;
+    keyimg2.style.top = "4%";
+    keyimg2.style.left = "10%";
+    keyimg2.style.width = "10%";
+    keyimg2.style.height = "10%";
+    keyimg2.style.transform = "translate(-50%, -50%)";
+    keyimg2.style.zIndex = "0";
+  } else {
+    keyimg2.style.top = "54.5%";
+    keyimg2.style.left = "54%";
+    keyimg2.style.opacity = "0";
+    keyimg2.style.width = "3%";
+    keyimg2.style.height = "3%";
+    keyimg2.onclick = () => handleKey2Found(keyimg2);
+    keyimg2.style.zIndex = "1";
+  }
+
+  const keyimg3 = document.createElement("img");
+  keyimg3.src = "images/key3.gif";
+  keyimg3.style.position = "absolute";
+  if (key3Found) {
+    keyimg3.style.opacity = "1";
+    keyimg3.onclick = null;
+    keyimg3.style.top = "4%";
+    keyimg3.style.left = "20%";
+    keyimg3.style.width = "10%";
+    keyimg3.style.height = "10%";
+    keyimg3.style.transform = "translate(-50%, -50%)";
+    keyimg3.style.zIndex = "0";
+  } else {
+    keyimg3.style.top = "58%";
+    keyimg3.style.left = "85%";
+    keyimg3.style.opacity = "0";
+    keyimg3.style.width = "3%";
+    keyimg3.style.height = "3%";
+    keyimg3.onclick = () => handleKey3Found(keyimg3);
+    keyimg3.style.zIndex = "1";
+  }
+
+  const keyimg4 = document.createElement("img");
+  keyimg4.src = "images/key4.gif";
+  keyimg4.style.position = "absolute";
+  if (key4Found) {
+    keyimg4.style.opacity = "1";
+    keyimg4.onclick = null;
+    keyimg4.style.top = "4%";
+    keyimg4.style.left = "30%";
+    keyimg4.style.width = "10%";
+    keyimg4.style.height = "10%";
+    keyimg4.style.transform = "translate(-50%, -50%)";
+    keyimg4.style.zIndex = "1";
+  } else {
+    keyimg4.style.top = "50%";
+    keyimg4.style.left = "50%";
+    keyimg4.style.opacity = "0";
+    keyimg4.style.width = "3%";
+    keyimg4.style.height = "3%";
+    keyimg4.onclick = () => handleKey4Found(keyimg4);
+  }
 
   const text = document.createElement("h1");
   text.textContent =
@@ -710,9 +918,19 @@ function loadFinalRoomScene(container) {
   text.style.left = "1%";
   text.style.transform = "translateX(-50%, -50%)";
   text.style.direction = "ltr";
-  text.style.width = "580px";
 
-  container.append(image3, image10, image5, text);
+  image4div.appendChild(image10);
+  image4div.appendChild(keyimg1);
+  image4div.appendChild(text);
+  image4div.appendChild(keyimg2);
+  image4div.appendChild(keyimg3);
+  image4div.appendChild(keyimg4);
+
+  imageContainer.appendChild(image3);
+  imageContainer.appendChild(image4div);
+  imageContainer.appendChild(image5);
+
+  container.appendChild(imageContainer);
 }
 
 function handleKey1Found() {
