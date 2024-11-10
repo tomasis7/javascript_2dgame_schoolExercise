@@ -79,7 +79,6 @@ function loadRoom0Scene(container) {
 
   const image3 = document.createElement("img");
   image3.src = "images/leftarrowbutton.gif";
-  image3.style.zIndex = "1";
   image3.onclick = () => loadStartScene(container);
 
   const image4div = document.createElement("div");
@@ -89,11 +88,9 @@ function loadRoom0Scene(container) {
   roomImage0.src = "images/room0.gif";
   roomImage0.style.width = "100%";
   roomImage0.style.height = "100%";
-  roomImage0.style.zIndex = "0";
 
   const image5 = document.createElement("img");
   image5.src = "images/rightarrowbutton.gif";
-  image5.style.zIndex = "1";
   image5.onclick = function () {
     loadRoom1Scene(container);
   };
@@ -101,16 +98,7 @@ function loadRoom0Scene(container) {
   const keyimg1 = document.createElement("img");
   keyimg1.src = "images/key1.gif";
   keyimg1.style.position = "absolute";
-  keyimg1.style.zIndex = "1";
   if (key1Found) {
-    img.style.opacity = "1";
-    img.onclick = null;
-    img.style.top = "4%";
-    img.style.left = "2%";
-    img.style.width = "10%";
-    img.style.height = "10%";
-    img.style.transform = "translate(-50%, -50%)";
-    img.style.zIndex = "0";
   } else {
     keyimg1.style.top = "74%";
     keyimg1.style.left = "15%";
@@ -119,23 +107,30 @@ function loadRoom0Scene(container) {
     keyimg1.style.height = "3%";
     keyimg1.style.transform = "translate(-50%, -50%)";
     keyimg1.onclick = () => foundKey1(container);
-    keyimg1.style.zIndex = "1";
+    keyimg1.style.zIndex = "-1";
+    keyimg1.style.pointerEvents = "none";
   }
 
   const keyimg2 = document.createElement("img");
   keyimg2.src = "images/key2.gif";
   keyimg2.style.position = "absolute";
   keyimg2.style.opacity = key2Found ? "1" : "0";
+  keyimg2.style.zIndex = "-1";
+  keyimg2.style.pointerEvents = "none";
 
   const keyimg3 = document.createElement("img");
   keyimg3.src = "images/key3.gif";
   keyimg3.style.position = "absolute";
   keyimg3.style.opacity = key3Found ? "1" : "0";
+  keyimg3.style.zIndex = "-1";
+  keyimg3.style.pointerEvents = "none";
 
   const keyimg4 = document.createElement("img");
   keyimg4.src = "images/key4.gif";
   keyimg4.style.position = "absolute";
   keyimg4.style.opacity = key4Found ? "1" : "0";
+  keyimg4.style.zIndex = "-1";
+  keyimg4.style.pointerEvents = "none";
 
   const text = document.createElement("h1");
   text.textContent =
@@ -172,7 +167,6 @@ function loadRoom1Scene(container) {
 
   const image3 = document.createElement("img");
   image3.src = "images/leftarrowbutton.gif";
-  image3.style.zIndex = "1";
   image3.onclick = () => loadRoom0Scene(container);
 
   const image6div = document.createElement("div");
@@ -185,7 +179,6 @@ function loadRoom1Scene(container) {
 
   const image5 = document.createElement("img");
   image5.src = "images/rightarrowbutton.gif";
-  image5.style.zIndex = "1";
   image5.onclick = function () {
     loadRoom2Scene(container);
   };
@@ -193,8 +186,6 @@ function loadRoom1Scene(container) {
   const keyimg2 = document.createElement("img");
   keyimg2.src = "images/key2.gif";
   keyimg2.style.position = "absolute";
-  keyimg2.style.zIndex = "1";
-
   if (key2Found) {
   } else {
     keyimg2.style.top = "54.5%";
@@ -203,26 +194,30 @@ function loadRoom1Scene(container) {
     keyimg2.style.width = "3%";
     keyimg2.style.height = "3%";
     keyimg2.onclick = () => foundKey2(container);
-    keyimg2.style.zIndex = "1";
+    keyimg2.style.zIndex = "-1"; // Ensure key4 is below img5
+    keyimg2.style.pointerEvents = "none";
   }
 
   const keyimg1 = document.createElement("img");
   keyimg1.src = "images/key1.gif";
   keyimg1.style.position = "absolute";
   keyimg1.style.opacity = key1Found ? "1" : "0";
-  keyimg1.style.zIndex = "1";
+  keyimg1.style.zIndex = "-1"; // Ensure key4 is below img5
+  keyimg1.style.pointerEvents = "none";
 
   const keyimg3 = document.createElement("img");
   keyimg3.src = "images/key3.gif";
   keyimg3.style.position = "absolute";
   keyimg3.style.opacity = key3Found ? "1" : "0";
-  keyimg3.style.zIndex = "1";
+  keyimg3.style.zIndex = "-1";
+  keyimg3.style.pointerEvents = "none";
 
   const keyimg4 = document.createElement("img");
   keyimg4.src = "images/key4.gif";
   keyimg4.style.position = "absolute";
   keyimg4.style.opacity = key4Found ? "1" : "0";
-  keyimg4.style.zIndex = "1";
+  keyimg4.style.zIndex = "-1";
+  keyimg4.style.pointerEvents = "none";
 
   const text = document.createElement("h1");
   text.textContent =
@@ -507,7 +502,8 @@ function foundKey1(container) {
     img.style.width = "10%";
     img.style.height = "10%";
     img.style.transform = "translate(-50%, -50%)";
-    img.style.zIndex = "1";
+    img.style.zIndex = "-1";
+    img.style.pointerEvents = "none";
   });
 }
 
@@ -518,12 +514,12 @@ function foundKey2(container) {
   keyimg2.forEach((img) => {
     img.style.opacity = "1";
     img.onclick = null;
-    img.style.top = "4%";
-    img.style.left = "20%";
+    img.style.top = "1%";
+    img.style.left = "1%";
     img.style.width = "10%";
     img.style.height = "10%";
-    img.style.transform = "translate(-50%, -50%)";
-    img.style.zIndex = "1";
+    img.style.zIndex = "-1";
+    img.style.pointerEvents = "none";
   });
 }
 
@@ -538,7 +534,7 @@ function foundKey3(container) {
     img.style.left = "70%";
     img.style.width = "10%";
     img.style.height = "10%";
-    img.style.zIndex = "1";
+    img.style.zIndex = "-1";
     img.style.pointerEvents = "none";
   });
 }
@@ -554,7 +550,7 @@ function foundKey4(container) {
     img.style.left = "40%";
     img.style.width = "10%";
     img.style.height = "10%";
-    img.style.zIndex = "1";
+    img.style.zIndex = "-1";
     img.style.pointerEvents = "none";
   });
 }
