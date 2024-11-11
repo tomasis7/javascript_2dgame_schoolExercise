@@ -815,6 +815,7 @@ function loadFinalRoomScene(container) {
   image10.style.width = "100%";
   image10.style.height = "100%";
   image10.style.zIndex = "0";
+  image10.onclick = () => loadFinalDoor(container);
 
   const image5 = document.createElement("img");
   image5.src = "images/rightarrowbutton.gif";
@@ -975,7 +976,7 @@ function handleKey3Found(keyimg3) {
   keyimg3.style.zIndex = "1";
 }
 
-function handleKey4Found(container) {
+function handleKey4Found() {
   key4Found = true;
   localStorage.setItem("key4Found", "true");
   const keyimg4 = document.querySelectorAll("img[src='images/key4.gif']");
@@ -989,4 +990,44 @@ function handleKey4Found(container) {
     img.style.zIndex = "1";
     img.style.transform = "translate(-50%, -50%)";
   });
+}
+
+function loadFinalDoor(container) {
+  const key1 = localStorage.getItem("key1Found");
+  const key2 = localStorage.getItem("key2Found");
+  const key3 = localStorage.getItem("key3Found");
+  const key4 = localStorage.getItem("key4Found");
+
+  if (
+    key1 === "true" &&
+    key2 === "true" &&
+    key3 === "true" &&
+    key4 === "true"
+  ) {
+    alert(
+      "You have found all four keys. Congratulations! You have unlocked the door and escaped the room.",
+    );
+    localStorage.clear();
+
+    loadFinalRoom(container);
+  } else {
+    alert(
+      "You don't have all four keys yet. Keep exploring the rooms to find them all and unlock the door.",
+    );
+  }
+}
+
+function loadFinalRoom(container) {
+  container.innerHTML = "";
+
+  const text = document.createElement("h1");
+  text.textContent = "Congratulations! You have escaped the room.";
+  text.className = "large green";
+
+  const finalRoomImage = document.createElement("img");
+  finalRoomImage.src = "images/finaldoor.gif";
+  finalRoomImage.style.width = "100%";
+  finalRoomImage.style.height = "100%";
+
+  container.append(text, finalRoomImage);
 }
