@@ -59,6 +59,22 @@ function loadStartScene(container) {
   input.placeholder = "Enter your name";
   input.className = "large green";
 
+  const startButton = document.createElement("button");
+  startButton.textContent = "Start Game";
+  startButton.className = "large green";
+  startButton.onclick = () => {
+    if (input.value.trim() === "") {
+      alert("Please enter your name to start the game.");
+    } else {
+      localStorage.clear();
+      key1Found = false;
+      key2Found = false;
+      key3Found = false;
+      key4Found = false;
+      loadRoom0Scene(container);
+    }
+  };
+
   container.style.display = "flex";
   container.style.justifyContent = "center";
   container.style.alignItems = "center";
