@@ -1,9 +1,107 @@
+/**
+ * Main function to initialize the game.
+ * Loads the start scene and retrieves the state of found keys from localStorage.
+ */
+function main() {}
+
+/**
+ * Loads the start scene of the game.
+ * @param {HTMLElement} container - The container element to load the scene into.
+ */
+function loadStartScene(container) {}
+
+/**
+ * Loads the first room scene of the game.
+ * @param {HTMLElement} container - The container element to load the scene into.
+ */
+function loadRoom0Scene(container) {}
+
+/**
+ * Loads the second room scene of the game.
+ * @param {HTMLElement} container - The container element to load the scene into.
+ */
+function loadRoom1Scene(container) {}
+
+/**
+ * Loads the third room scene of the game.
+ * @param {HTMLElement} container - The container element to load the scene into.
+ */
+function loadRoom2Scene(container) {}
+
+/**
+ * Loads the fourth room scene of the game.
+ * @param {HTMLElement} container - The container element to load the scene into.
+ */
+function loadRoom3Scene(container) {}
+
+/**
+ * Loads the fifth room scene of the game.
+ * @param {HTMLElement} container - The container element to load the scene into.
+ */
+function loadRoom4Scene(container) {}
+
+/**
+ * Loads the final room scene of the game.
+ * @param {HTMLElement} container - The container element to load the scene into.
+ */
+function loadFinalRoomScene(container) {}
+
+/**
+ * Handles the event when the first key is found.
+ * Updates the state and localStorage, and modifies the key image.
+ * @param {HTMLElement} container - The container element to update the key image in.
+ */
+function handleKey1Found(container) {}
+
+/**
+ * Handles the event when the second key is found.
+ * Updates the state and localStorage, and modifies the key image.
+ * @param {HTMLImageElement} keyimg2 - The image element of the second key.
+ */
+function handleKey2Found(keyimg2) {}
+
+/**
+ * Handles the event when the third key is found.
+ * Updates the state and localStorage, and modifies the key image.
+ * @param {HTMLImageElement} keyimg3 - The image element of the third key.
+ */
+function handleKey3Found(keyimg3) {}
+
+/**
+ * Handles the event when the fourth key is found.
+ * Updates the state and localStorage, and modifies the key image.
+ */
+function handleKey4Found() {}
+
+/**
+ * Loads the final door scene and checks if all keys are found.
+ * If all keys are found, displays a success message and loads the final room.
+ * Otherwise, displays a message to keep exploring.
+ * @param {HTMLElement} container - The container element to load the scene into.
+ */
+function loadFinalDoor(container) {}
+
+/**
+ * Loads the final room scene after the player has escaped.
+ * @param {HTMLElement} container - The container element to load the scene into.
+ */
+function loadFinalRoom(container) {}
 window.addEventListener("DOMContentLoaded", main);
 
+// Variables to store the state of found keys
 let key1Found = false;
 let key2Found = false;
 let key3Found = false;
 let key4Found = false;
+
+// Array to store room image filenames
+const roomImages = [
+  "room0.gif",
+  "room1.gif",
+  "room2.gif",
+  "room3.gif",
+  "room4.gif",
+];
 
 function main() {
   const container = document.getElementById("container");
