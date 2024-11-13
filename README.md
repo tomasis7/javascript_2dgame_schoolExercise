@@ -30,4 +30,4 @@ This project is licensed under the MIT License. See the [LICENSE](LICENSE) file 
 ## Acknowledgments
 
 - Thanks to the school for providing the opportunity to work on this project.
-- Inspired by various AI like Github Copilot and the image generator Canva.
+- Inspired by AI Github Copilot and the image generator Canva. At least 80% code is written by myself though the code became very long because the simple nature of my way of coding. Copilot suggested various ideas to shorten the code but it became impossible since 1000 lines of the code are already done. I learnt a lot and would have written diferently the next time.  
