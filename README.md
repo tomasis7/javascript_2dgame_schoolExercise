@@ -1,47 +1,27 @@
-# JavaScript 2D Game - School Exercise
+# JavaScript 2D Puzzle Game (the imagery inspired by Castlevania) - School Exercise
 
-This project is a simple 2D game developed as a school exercise using JavaScript, HTML, and CSS. The game demonstrates basic game development concepts such as rendering, animation, and user interaction.
+This project is a simple 2D game developed as a school exercise using JavaScript, HTML, and CSS. The game demonstrates basic game development concepts such as onclick, localStorage, array and user interaction.
 
 ## Features
 
-- **Player Movement**: Control the player character using keyboard inputs.
-- **Collision Detection**: Basic collision detection with obstacles.
-- **Score Tracking**: Keep track of the player's score.
-- **Game Over**: Display a game over screen when the player loses.
-
-## Getting Started
+- **Player Movement**: Control the player character using mouseclicks on pictures and arrows.
 
 ### Prerequisites
 
 - A modern web browser (e.g., Chrome, Firefox, Edge)
 
-### Installation
+### Go to the site
 
-1. Clone the repository:
-
-```sh
-git clone https://github.com/yourusername/javascript_2dgame_schoolExercise.git
-```
-
-2. Navigate to the project directory:
-
-```sh
-cd javascript_2dgame_schoolExercise
-```
+- https://tomasis7.github.io/javascript_2dgame_schoolExercise/
 
 ### Running the Game
 
-1. Open `index.html` in your web browser.
+1. It opens `index.html` automatically in your web browser.
 
 ## Usage
 
 - Use the arrow keys to move the player character.
-- Avoid obstacles and collect items to increase your score.
-- The game ends when the player collides with an obstacle.
-
-## Contributing
-
-Contributions are welcome! Please fork the repository and create a pull request with your changes.
+- Find the four keys to get a way out of the rooms.
 
 ## License
 
@@ -50,4 +30,4 @@ This project is licensed under the MIT License. See the [LICENSE](LICENSE) file 
 ## Acknowledgments
 
 - Thanks to the school for providing the opportunity to work on this project.
-- Inspired by various online tutorials and resources on JavaScript game development.
+- Inspired by various AI like Github Copilot and the image generator Canva.
