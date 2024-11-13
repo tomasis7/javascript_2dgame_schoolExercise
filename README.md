@@ -1,53 +1,28 @@
-# JavaScript 2D Game - School Exercise
+JavaScript 2D Puzzle Game (Imagery Inspired by Castlevania) - School Exercise
 
-This project is a simple 2D game developed as a school exercise using JavaScript, HTML, and CSS. The game demonstrates basic game development concepts such as rendering, animation, and user interaction.
+This project is a simple 2D game developed as a school exercise using JavaScript, HTML, and CSS. The game demonstrates basic game development concepts such as onclick events, localStorage, arrays, and user interaction.
 
-## Features
+Features
+Player Movement: Control the player character using mouse clicks on pictures and arrows.
 
-- **Player Movement**: Control the player character using keyboard inputs.
-- **Collision Detection**: Basic collision detection with obstacles.
-- **Score Tracking**: Keep track of the player's score.
-- **Game Over**: Display a game over screen when the player loses.
+Prerequisites
+A modern web browser (e.g., Chrome, Firefox, Edge)
 
-## Getting Started
+Go to the Site
+Visit the game
 
-### Prerequisites
+Running the Game
+It opens index.html automatically in your web browser.
 
-- A modern web browser (e.g., Chrome, Firefox, Edge)
+Usage
+Use the arrow keys to move the player character.
 
-### Installation
+Find the four keys to escape the rooms.
 
-1. Clone the repository:
+License
+This project is licensed under the MIT License. See the LICENSE file for details.
 
-```sh
-git clone https://github.com/yourusername/javascript_2dgame_schoolExercise.git
-```
+Acknowledgments
+Thanks to the school for providing the opportunity to work on this project.
 
-2. Navigate to the project directory:
-
-```sh
-cd javascript_2dgame_schoolExercise
-```
-
-### Running the Game
-
-1. Open `index.html` in your web browser.
-
-## Usage
-
-- Use the arrow keys to move the player character.
-- Avoid obstacles and collect items to increase your score.
-- The game ends when the player collides with an obstacle.
-
-## Contributing
-
-Contributions are welcome! Please fork the repository and create a pull request with your changes.
-
-## License
-
-This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
-
-## Acknowledgments
-
-- Thanks to the school for providing the opportunity to work on this project.
-- Inspired by various online tutorials and resources on JavaScript game development.
+Inspired by AI GitHub Copilot and the image generator Canva. At least 80% of the code is written by myself, though the code became very long because of my simple way of coding. Copilot suggested various ideas to shorten the code, but it became impossible since 1000 lines of the code were already done. I learned a lot and would write it differently the next time.
