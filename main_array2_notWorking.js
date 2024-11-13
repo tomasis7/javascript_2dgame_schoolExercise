@@ -940,7 +940,7 @@ function handleKeyFound(index, keyimg) {
   keyimg.style.width = "10%";
   keyimg.style.height = "10%";
   keyimg.style.transform = "translate(-50%, -50%)";
-  keyimg.style.zIndex = "2";
+  keyimg.style.zIndex = "1";
 }
 
 function loadFinalDoor(container) {
