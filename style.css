@@ -20,8 +20,18 @@ p {
 }
 
 .large.green {
-  padding: 10px;
+  /* padding: 10px; */
   font-family: "custom";
-  font-size: 2rem;
-  color: green;
+  font-size: 1rem;
+  color: yellowgreen;
+}
+
+h1.large.green {
+  font-size: 4em;
+  text-align: center;
+  color: yellowgreen;
+}
+
+.input-margin {
+  margin-top: -40px;
 }

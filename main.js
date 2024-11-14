@@ -88,24 +88,24 @@ function loadFinalDoor(container) {}
 function loadFinalRoom(container) {}
 
 /**
- * Displays the popup by setting its display style to "flex".
+ * Displays the first popup by setting its display style to "flex".
  */
 function openPopup() {}
 
 /**
- * Hides the popup by setting its display style to "none".
+ * Hides the first popup by setting its display style to "none".
  */
 function closePopup() {}
 
 /**
- * Displays the popup by setting its display style to "flex".
+ * Displays the second popup by setting its display style to "flex".
  */
-function openPopup() {}
+function openPopup1() {}
 
 /**
- * Hides the popup by setting its display style to "none".
+ * Hides the second popup by setting its display style to "none".
  */
-function closePopup() {}
+function closePopup1() {}
 
 /////////////////////////////////////////////////////
 window.addEventListener("DOMContentLoaded", main);
@@ -123,6 +123,14 @@ const roomImages = [
   "images/room2.gif",
   "images/room3.gif",
   "images/room4.gif",
+];
+
+// Array to store key image filenames
+const keyImg = [
+  "images/key1.gif",
+  "images/key2.gif",
+  "images/key3.gif",
+  "images/key4.gif",
 ];
 
 // Function to initialize the game
@@ -182,7 +190,8 @@ function loadStartScene(container) {
   const input = document.createElement("input");
   input.type = "text";
   input.placeholder = "Enter your name";
-  input.className = "large green";
+  input.className = "large green input-margin ";
+  input.style.color = "red";
 
   container.style.display = "flex";
   container.style.justifyContent = "center";
@@ -224,7 +233,7 @@ function loadRoom0Scene(container) {
   };
 
   const keyimg1 = document.createElement("img");
-  keyimg1.src = "images/key1.gif";
+  keyimg1.src = keyImg[0];
   keyimg1.style.position = "absolute";
   keyimg1.style.zIndex = "1";
   if (key1Found) {
@@ -248,7 +257,7 @@ function loadRoom0Scene(container) {
   }
 
   const keyimg2 = document.createElement("img");
-  keyimg2.src = "images/key2.gif";
+  keyimg2.src = keyImg[1];
   keyimg2.style.position = "absolute";
   if (key2Found) {
     keyimg2.style.opacity = "1";
@@ -270,7 +279,7 @@ function loadRoom0Scene(container) {
   }
 
   const keyimg3 = document.createElement("img");
-  keyimg3.src = "images/key3.gif";
+  keyimg3.src = keyImg[2];
   keyimg3.style.position = "absolute";
   if (key3Found) {
     keyimg3.style.opacity = "1";
@@ -292,7 +301,7 @@ function loadRoom0Scene(container) {
   }
 
   const keyimg4 = document.createElement("img");
-  keyimg4.src = "images/key4.gif";
+  keyimg4.src = keyImg[3];
   keyimg4.style.position = "absolute";
   if (key4Found) {
     keyimg4.style.opacity = "1";
@@ -312,7 +321,7 @@ function loadRoom0Scene(container) {
     keyimg4.onclick = () => handleKey4Found(keyimg4);
   }
 
-  const text = document.createElement("h1");
+  const text = document.createElement("p");
   text.textContent =
     "You are trapped. Find the keys to escape. Collect all four keys to unlock the door. Explore this room and the next to locate the keys.";
   text.className = "large green";
@@ -455,7 +464,7 @@ function loadRoom1Scene(container) {
     keyimg4.onclick = () => handleKey4Found(keyimg4);
   }
 
-  const text = document.createElement("h1");
+  const text = document.createElement("p");
   text.textContent =
     "You don't have all four keys yet. Keep exploring the rooms to find them all and unlock the door.";
   text.className = "large green";
@@ -598,7 +607,7 @@ function loadRoom2Scene(container) {
     keyimg4.onclick = () => handleKey4Found(keyimg4);
   }
 
-  const text = document.createElement("h1");
+  const text = document.createElement("p");
   text.textContent =
     "You don't have all four keys yet. Keep exploring the rooms to find them all and unlock the door.";
   text.className = "large green";
@@ -742,7 +751,7 @@ function loadRoom3Scene(container) {
     keyimg4.onclick = () => handleKey4Found(keyimg4);
   }
 
-  const text = document.createElement("h1");
+  const text = document.createElement("p");
   text.textContent =
     "You don't have all four keys yet. Keep exploring the rooms to find them all and unlock the door.";
   text.className = "large green";
@@ -888,7 +897,7 @@ function loadRoom4Scene(container) {
     keyimg3.style.zIndex = "1";
   }
 
-  const text = document.createElement("h1");
+  const text = document.createElement("p");
   text.textContent =
     "You don't have all four keys yet. Keep exploring the rooms to find them all and unlock the door.";
   text.className = "large green";
@@ -1035,7 +1044,7 @@ function loadFinalRoomScene(container) {
     keyimg4.onclick = () => handleKey4Found(keyimg4);
   }
 
-  const text = document.createElement("h1");
+  const text = document.createElement("p");
   text.textContent =
     "You don't have all four keys yet. Keep exploring the rooms to find them all and unlock the door.";
   text.className = "large green";
@@ -1145,7 +1154,7 @@ function loadFinalDoor(container) {
 function loadFinalRoom(container) {
   container.innerHTML = "";
 
-  const text = document.createElement("h1");
+  const text = document.createElement("p");
   text.textContent = "Congratulations! You have escaped the room.";
   text.className = "large green";
 
