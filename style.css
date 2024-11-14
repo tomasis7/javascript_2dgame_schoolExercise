@@ -1,5 +1,5 @@
 body {
-  font-family: Georgia, "Times New Roman", Times, serif;
+  font-family: "custom";
   background-color: #000;
   color: greenyellow;
   display: flex;
@@ -24,7 +24,4 @@ p {
   font-family: "custom";
   font-size: 2rem;
   color: green;
-  /* border-color: aliceblue;
-  border-style: dotted;
-  border-radius: 5px; */
 }

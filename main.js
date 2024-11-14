@@ -86,6 +86,28 @@ function loadFinalDoor(container) {}
  * @param {HTMLElement} container - The container element to load the scene into.
  */
 function loadFinalRoom(container) {}
+
+/**
+ * Displays the popup by setting its display style to "flex".
+ */
+function openPopup() {}
+
+/**
+ * Hides the popup by setting its display style to "none".
+ */
+function closePopup() {}
+
+/**
+ * Displays the popup by setting its display style to "flex".
+ */
+function openPopup() {}
+
+/**
+ * Hides the popup by setting its display style to "none".
+ */
+function closePopup() {}
+
+/////////////////////////////////////////////////////
 window.addEventListener("DOMContentLoaded", main);
 
 // Variables to store the state of found keys
@@ -96,13 +118,14 @@ let key4Found = false;
 
 // Array to store room image filenames
 const roomImages = [
-  "room0.gif",
-  "room1.gif",
-  "room2.gif",
-  "room3.gif",
-  "room4.gif",
+  "images/room0.gif",
+  "images/room1.gif",
+  "images/room2.gif",
+  "images/room3.gif",
+  "images/room4.gif",
 ];
 
+// Function to initialize the game
 function main() {
   const container = document.getElementById("container");
   const storedKey1Found = localStorage.getItem("key1Found");
@@ -137,9 +160,7 @@ function loadStartScene(container) {
   image1.height = 100;
   image1.onclick = () => {
     if (input.value.trim() === "") {
-      alert(
-        "Please enter your name on the pact paper of the devil to start the game."
-      );
+      openPopup();
     } else {
       localStorage.clear();
       key1Found = false;
@@ -190,7 +211,7 @@ function loadRoom0Scene(container) {
   image4div.style.position = "relative";
 
   const roomImage0 = document.createElement("img");
-  roomImage0.src = "images/room0.gif";
+  roomImage0.src = roomImages[0];
   roomImage0.style.width = "100%";
   roomImage0.style.height = "100%";
   roomImage0.style.zIndex = "0";
@@ -333,7 +354,7 @@ function loadRoom1Scene(container) {
   image6div.style.position = "relative";
 
   const roomImage1 = document.createElement("img");
-  roomImage1.src = "images/room1.gif";
+  roomImage1.src = roomImages[1];
   roomImage1.style.width = "100%";
   roomImage1.style.height = "100%";
 
@@ -475,11 +496,11 @@ function loadRoom2Scene(container) {
   const image4div = document.createElement("div");
   image4div.style.position = "relative";
 
-  const image7 = document.createElement("img");
-  image7.src = "images/room2.gif";
-  image7.style.width = "100%";
-  image7.style.height = "100%";
-  image7.style.zIndex = "0";
+  const roomImage2 = document.createElement("img");
+  roomImage2.src = roomImages[2];
+  roomImage2.style.width = "100%";
+  roomImage2.style.height = "100%";
+  roomImage2.style.zIndex = "0";
 
   const image5 = document.createElement("img");
   image5.src = "images/rightarrowbutton.gif";
@@ -587,7 +608,7 @@ function loadRoom2Scene(container) {
   text.style.transform = "translateX(-50%, -50%)";
   text.style.direction = "ltr";
 
-  image4div.appendChild(image7);
+  image4div.appendChild(roomImage2);
   image4div.appendChild(keyimg1);
   image4div.appendChild(text);
   image4div.appendChild(keyimg2);
@@ -618,7 +639,7 @@ function loadRoom3Scene(container) {
   image8div.style.position = "relative";
 
   const roomImage3 = document.createElement("img");
-  roomImage3.src = "images/room3.gif";
+  roomImage3.src = roomImages[3];
   roomImage3.style.zIndex = "0";
 
   roomImage3.style.width = "100%";
@@ -767,7 +788,7 @@ function loadRoom4Scene(container) {
   image9div.style.position = "relative";
 
   const roomImage4 = document.createElement("img");
-  roomImage4.src = "images/room4.gif";
+  roomImage4.src = roomImages[4];
   roomImage4.style.width = "100%";
   roomImage4.style.height = "100%";
 
@@ -1134,4 +1155,90 @@ function loadFinalRoom(container) {
   finalRoomImage.style.height = "100%";
 
   container.append(text, finalRoomImage);
+}
+
+const popup = document.createElement("div");
+popup.id = "popup";
+popup.style.display = "none";
+popup.style.position = "fixed";
+popup.style.top = "0";
+popup.style.left = "0";
+popup.style.width = "100%";
+popup.style.height = "100%";
+popup.style.justifyContent = "center";
+popup.style.alignItems = "center";
+
+const popupContent = document.createElement("div");
+popupContent.style.backgroundColor = "#333";
+popupContent.style.padding = "20px";
+popupContent.style.borderRadius = "5px";
+popupContent.style.textAlign = "center";
+popupContent.style.position = "relative";
+
+const closeBtn = document.createElement("span");
+closeBtn.innerHTML = "&times;";
+closeBtn.style.position = "absolute";
+closeBtn.style.top = "10px";
+closeBtn.style.right = "10px";
+closeBtn.style.cursor = "pointer";
+closeBtn.style.fontSize = "20px";
+closeBtn.onclick = closePopup;
+
+const popupText = document.createElement("p");
+popupText.innerText = "Please enter your name to start the game.";
+
+popupContent.appendChild(closeBtn);
+popupContent.appendChild(popupText);
+popup.appendChild(popupContent);
+document.body.appendChild(popup);
+
+function openPopup() {
+  popup.style.display = "flex";
+}
+
+function closePopup() {
+  popup.style.display = "none";
+}
+
+const popup1 = document.createElement("div");
+popup1.id = "popup1";
+popup1.style.display = "none";
+popup1.style.position = "fixed";
+popup1.style.top = "0";
+popup1.style.left = "0";
+popup1.style.width = "100%";
+popup1.style.height = "100%";
+popup1.style.justifyContent = "center";
+popup1.style.alignItems = "center";
+
+const popupContent1 = document.createElement("div");
+popupContent1.style.backgroundColor = "#333";
+popupContent1.style.padding = "20px";
+popupContent1.style.borderRadius = "5px";
+popupContent1.style.textAlign = "center";
+popupContent1.style.position = "relative";
+
+const closeBtn1 = document.createElement("span");
+closeBtn1.innerHTML = "&times;";
+closeBtn1.style.position = "absolute";
+closeBtn1.style.top = "10px";
+closeBtn1.style.right = "10px";
+closeBtn1.style.cursor = "pointer";
+closeBtn1.style.fontSize = "20px";
+closeBtn1.onclick = closePopup;
+
+const popupText1 = document.createElement("p");
+popupText1.innerText = "Please enter your name to start the game.";
+
+popupContent1.appendChild(closeBtn1);
+popupContent1.appendChild(popupText1);
+popup1.appendChild(popupContent1);
+document.body.appendChild(popup1);
+
+function openPopup1() {
+  popup1.style.display = "flex";
+}
+
+function closePopup1() {
+  popup1.style.display = "none";
 }
