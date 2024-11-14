@@ -1132,22 +1132,16 @@ function loadFinalDoor(container) {
   const key3 = localStorage.getItem("key3Found");
   const key4 = localStorage.getItem("key4Found");
 
-  if (
-    key1 === "true" &&
-    key2 === "true" &&
-    key3 === "true" &&
-    key4 === "true"
-  ) {
-    alert(
-      "You have found all four keys. Congratulations! You have unlocked the door and escaped the room."
-    );
-    localStorage.clear();
+  function areAllKeysFound() {
+    return key1Found && key2Found && key3Found && key4Found;
+  }
 
+  if (areAllKeysFound()) {
+    openPopup1();
+    localStorage.clear();
     loadFinalRoom(container);
   } else {
-    alert(
-      "You don't have all four keys yet. Keep exploring the rooms to find them all and unlock the door."
-    );
+    openPopup2();
   }
 }
 
@@ -1237,7 +1231,9 @@ closeBtn1.style.fontSize = "20px";
 closeBtn1.onclick = closePopup;
 
 const popupText1 = document.createElement("p");
-popupText1.innerText = "Please enter your name to start the game.";
+popupText1.style.zIndex = "3";
+popupText1.innerText =
+  "You have found all four keys. Congratulations! You have unlocked the door and escaped the room.";
 
 popupContent1.appendChild(closeBtn1);
 popupContent1.appendChild(popupText1);
@@ -1245,9 +1241,61 @@ popup1.appendChild(popupContent1);
 document.body.appendChild(popup1);
 
 function openPopup1() {
-  popup1.style.display = "flex";
+  function areAllKeysFound() {
+    return key1Found && key2Found && key3Found && key4Found;
+  }
+  if (areAllKeysFound()) {
+    popup1.style.display = "flex";
+  } else {
+    popup2.style.display = "flex";
+  }
 }
 
 function closePopup1() {
   popup1.style.display = "none";
+}
+
+const popup2 = document.createElement("div");
+popup2.id = "popup2";
+popup2.style.display = "none";
+popup2.style.position = "fixed";
+popup2.style.top = "0";
+// popup2.style.left = "33%";
+popup2.style.width = "30%";
+popup2.style.height = "100%";
+popup2.style.justifyContent = "center";
+popup2.style.alignItems = "center";
+
+const popupContent2 = document.createElement("div");
+popupContent2.style.backgroundColor = "#333";
+popupContent2.style.padding = "20px";
+popupContent2.style.borderRadius = "5px";
+popupContent2.style.textAlign = "center";
+popupContent2.style.position = "relative";
+
+const closeBtn2 = document.createElement("span");
+closeBtn2.innerHTML = "&times;";
+closeBtn2.style.position = "absolute";
+closeBtn2.style.top = "10px";
+closeBtn2.style.right = "10px";
+closeBtn2.style.cursor = "pointer";
+closeBtn2.style.fontSize = "20px";
+closeBtn2.onclick = closePopup2;
+
+const popupText2 = document.createElement("p");
+popupText2.style.zIndex = "3";
+popupText2.innerText =
+  "You don't have all four keys yet. Keep exploring the rooms to find them all and unlock the door.";
+
+popupContent2.appendChild(closeBtn2);
+popupContent2.appendChild(popupText2);
+popup2.appendChild(popupContent2);
+document.body.appendChild(popup2);
+
+function openPopup2() {
+  popup2.style.display = "flex";
+}
+
+function closePopup2() {
+  popup2.style.display = "none";
 }
