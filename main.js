@@ -88,24 +88,40 @@ function loadFinalDoor(container) {}
 function loadFinalRoom(container) {}
 
 /**
- * Displays the first popup by setting its display style to "flex".
+ * Checks if all keys are found.
+ * @returns {boolean} - True if all keys are found, false otherwise.
+ */
+function areAllKeysFound() {}
+
+/**
+ * Displays the first popup by setting its display style to "flex". (ask for name)
  */
 function openPopup() {}
 
 /**
- * Hides the first popup by setting its display style to "none".
+ * Hides the first popup by setting its display style to "none". (ask for name)
  */
 function closePopup() {}
 
 /**
- * Displays the second popup by setting its display style to "flex".
+ * Displays the second popup by setting its display style to "flex". (key found)
  */
 function openPopup1() {}
 
 /**
- * Hides the second popup by setting its display style to "none".
+ * Hides the second popup by setting its display style to "none". (key found)
  */
 function closePopup1() {}
+
+/**
+ * Displays the third popup by setting its display style to "flex". (no key found)
+ */
+function openPopup2() {}
+
+/**
+ * Hides the third popup by setting its display style to "none". (no key found)
+ */
+function closePopup2() {}
 
 /////////////////////////////////////////////////////
 window.addEventListener("DOMContentLoaded", main);
@@ -214,7 +230,7 @@ function loadRoom0Scene(container) {
   const image3 = document.createElement("img");
   image3.src = "images/leftarrowbutton.gif";
   image3.style.zIndex = "1";
-  image3.onclick = () => loadStartScene(container);
+  image3.onclick = () => loadtartScene(container);
 
   const image4div = document.createElement("div");
   image4div.style.position = "relative";
@@ -1148,16 +1164,12 @@ function loadFinalDoor(container) {
 function loadFinalRoom(container) {
   container.innerHTML = "";
 
-  const text = document.createElement("p");
-  text.textContent = "Congratulations! You have escaped the room.";
-  text.className = "large green";
-
   const finalRoomImage = document.createElement("img");
   finalRoomImage.src = "images/finaldoor.gif";
   finalRoomImage.style.width = "100%";
   finalRoomImage.style.height = "100%";
 
-  container.append(text, finalRoomImage);
+  container.append(finalRoomImage);
 }
 
 const popup = document.createElement("div");
@@ -1228,7 +1240,7 @@ closeBtn1.style.top = "10px";
 closeBtn1.style.right = "10px";
 closeBtn1.style.cursor = "pointer";
 closeBtn1.style.fontSize = "20px";
-closeBtn1.onclick = closePopup;
+closeBtn1.onclick = closePopup1;
 
 const popupText1 = document.createElement("p");
 popupText1.style.zIndex = "3";
@@ -1260,7 +1272,6 @@ popup2.id = "popup2";
 popup2.style.display = "none";
 popup2.style.position = "fixed";
 popup2.style.top = "0";
-// popup2.style.left = "33%";
 popup2.style.width = "30%";
 popup2.style.height = "100%";
 popup2.style.justifyContent = "center";
