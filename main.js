@@ -362,9 +362,16 @@ function loadRoom0Scene(container) {
   text.style.transform = "translateX(-50%, -50%)";
   text.style.direction = "ltr";
 
-  const messageElement = document.createElement("p");
-  messageElement.textContent = generateKeyMessage();
-  messageElement.id = "keyMessage";
+  // const messageElement = document.createElement("p");
+  // messageElement.textContent = generateKeyMessage();
+  // messageElement.id = "keyMessage";
+
+  const keysFound = [key1Found, key2Found, key3Found, key4Found].filter(
+    Boolean
+  ).length;
+  if (keysFound < 4) {
+    openPopup3();
+  }
 
   image4div.appendChild(roomImage0);
   image4div.appendChild(keyimg1);
@@ -378,7 +385,6 @@ function loadRoom0Scene(container) {
   imageContainer.appendChild(image5);
 
   container.appendChild(imageContainer);
-  container.appendChild(messageElement);
 }
 
 function loadRoom1Scene(container) {
@@ -1183,6 +1189,11 @@ function loadFinalDoor(container) {
 function loadFinalRoom(container) {
   container.innerHTML = "";
 
+  const keyMessageElement = document.getElementById("keyMessage");
+  if (keyMessageElement) {
+    keyMessageElement.remove();
+  }
+
   const finalRoomImage = document.createElement("img");
   finalRoomImage.src = "images/finaldoor.gif";
   finalRoomImage.style.width = "100%";
@@ -1360,3 +1371,47 @@ const keyMessageElement = document.createElement("p");
 keyMessageElement.id = "keyMessage";
 document.body.appendChild(keyMessageElement);
 updateKeyMessage();
+
+const popup3 = document.createElement("div");
+popup3.id = "popup";
+popup3.style.display = "none";
+popup3.style.position = "fixed";
+popup3.style.top = "0";
+popup3.style.width = "40%";
+popup3.style.height = "100%";
+popup3.style.justifyContent = "center";
+popup3.style.alignItems = "center";
+
+const popupContent3 = document.createElement("div");
+popupContent3.style.backgroundColor = "#333";
+popupContent3.style.padding = "20px";
+popupContent3.style.borderRadius = "5px";
+popupContent3.style.textAlign = "center";
+popupContent3.style.position = "relative";
+
+const closeBtn3 = document.createElement("span");
+closeBtn3.innerHTML = "&times;";
+closeBtn3.style.position = "absolute";
+closeBtn3.style.top = "10px";
+closeBtn3.style.right = "10px";
+closeBtn3.style.cursor = "pointer";
+closeBtn3.style.fontSize = "20px";
+closeBtn3.onclick = closePopup3;
+
+const popupText3 = document.createElement("p");
+popupText3.innerText =
+  "You haven't found any keys yet. Keep exploring the rooms to find them all and unlock the door.";
+
+popupContent3.appendChild(closeBtn3);
+popupContent3.appendChild(popupText3);
+popup3.appendChild(popupContent3);
+document.body.appendChild(popup3);
+
+function openPopup3() {
+  popupText3.innerText = generateKeyMessage();
+  popup3.style.display = "flex";
+}
+
+function closePopup3() {
+  popup3.style.display = "none";
+}
