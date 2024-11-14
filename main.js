@@ -123,6 +123,17 @@ function openPopup2() {}
  */
 function closePopup2() {}
 
+/**
+ * Generates a message based on the number of keys found.
+ * @returns {string} The message indicating the number of keys found and the number of keys remaining.
+ */
+function generateKeyMessage() {}
+
+/**
+ * Updates the message displayed to the user based on the number of keys found.
+ */
+function updateKeyMessage() {}
+
 /////////////////////////////////////////////////////
 window.addEventListener("DOMContentLoaded", main);
 
@@ -173,6 +184,11 @@ function main() {
 
 function loadStartScene(container) {
   container.innerHTML = "";
+
+  const keyMessageElement = document.getElementById("keyMessage");
+  if (keyMessageElement) {
+    keyMessageElement.remove();
+  }
 
   const text = document.createElement("h1");
   text.textContent = "Welcome to the game";
@@ -338,14 +354,17 @@ function loadRoom0Scene(container) {
   }
 
   const text = document.createElement("p");
-  text.textContent =
-    "You are trapped. Find the keys to escape. Collect all four keys to unlock the door. Explore this room and the next to locate the keys.";
+  // text.textContent = generateKeyMessage();
   text.className = "large green";
   text.style.position = "absolute";
   text.style.top = "99%";
   text.style.left = "1%";
   text.style.transform = "translateX(-50%, -50%)";
   text.style.direction = "ltr";
+
+  const messageElement = document.createElement("p");
+  messageElement.textContent = generateKeyMessage();
+  messageElement.id = "keyMessage";
 
   image4div.appendChild(roomImage0);
   image4div.appendChild(keyimg1);
@@ -359,6 +378,7 @@ function loadRoom0Scene(container) {
   imageContainer.appendChild(image5);
 
   container.appendChild(imageContainer);
+  container.appendChild(messageElement);
 }
 
 function loadRoom1Scene(container) {
@@ -481,8 +501,7 @@ function loadRoom1Scene(container) {
   }
 
   const text = document.createElement("p");
-  text.textContent =
-    "You don't have all four keys yet. Keep exploring the rooms to find them all and unlock the door.";
+  // text.textContent = generateKeyMessage();
   text.className = "large green";
   text.style.position = "absolute";
   text.style.top = "99%";
@@ -624,8 +643,7 @@ function loadRoom2Scene(container) {
   }
 
   const text = document.createElement("p");
-  text.textContent =
-    "You don't have all four keys yet. Keep exploring the rooms to find them all and unlock the door.";
+  // text.textContent = generateKeyMessage();
   text.className = "large green";
   text.style.position = "absolute";
   text.style.top = "99%";
@@ -768,8 +786,7 @@ function loadRoom3Scene(container) {
   }
 
   const text = document.createElement("p");
-  text.textContent =
-    "You don't have all four keys yet. Keep exploring the rooms to find them all and unlock the door.";
+  // text.textContent = generateKeyMessage();
   text.className = "large green";
   text.style.position = "absolute";
   text.style.top = "99%";
@@ -914,8 +931,7 @@ function loadRoom4Scene(container) {
   }
 
   const text = document.createElement("p");
-  text.textContent =
-    "You don't have all four keys yet. Keep exploring the rooms to find them all and unlock the door.";
+  // text.textContent = generateKeyMessage();
   text.className = "large green";
   text.style.position = "absolute";
   text.style.top = "99%";
@@ -1061,8 +1077,7 @@ function loadFinalRoomScene(container) {
   }
 
   const text = document.createElement("p");
-  text.textContent =
-    "You don't have all four keys yet. Keep exploring the rooms to find them all and unlock the door.";
+  // text.textContent = generateKeyMessage();
   text.className = "large green";
   text.style.position = "absolute";
   text.style.top = "99%";
@@ -1091,6 +1106,7 @@ function handleKey1Found(container) {
   if (keyimg1) {
     keyimg1.style.opacity = "1";
     keyimg1.onclick = null;
+    updateKeyMessage();
     keyimg1.style.top = "4%";
     keyimg1.style.left = "2%";
     keyimg1.style.width = "10%";
@@ -1105,6 +1121,7 @@ function handleKey2Found(keyimg2) {
   localStorage.setItem("key2Found", "true");
   keyimg2.style.opacity = "1";
   keyimg2.onclick = null;
+  updateKeyMessage();
   keyimg2.style.top = "4%";
   keyimg2.style.left = "10%";
   keyimg2.style.width = "10%";
@@ -1118,6 +1135,7 @@ function handleKey3Found(keyimg3) {
   localStorage.setItem("key3Found", "true");
   keyimg3.style.opacity = "1";
   keyimg3.onclick = null;
+  updateKeyMessage();
   keyimg3.style.top = "4%";
   keyimg3.style.left = "20%";
   keyimg3.style.width = "10%";
@@ -1133,6 +1151,7 @@ function handleKey4Found() {
   keyimg4.forEach((img) => {
     img.style.opacity = "1";
     img.onclick = null;
+    updateKeyMessage();
     img.style.top = "4%";
     img.style.left = "30%";
     img.style.width = "10%";
@@ -1243,7 +1262,6 @@ closeBtn1.style.fontSize = "20px";
 closeBtn1.onclick = closePopup1;
 
 const popupText1 = document.createElement("p");
-popupText1.style.zIndex = "3";
 popupText1.innerText =
   "You have found all four keys. Congratulations! You have unlocked the door and escaped the room.";
 
@@ -1310,3 +1328,35 @@ function openPopup2() {
 function closePopup2() {
   popup2.style.display = "none";
 }
+
+// Function to generate the message based on the number of keys found
+function generateKeyMessage() {
+  const keysFound = [key1Found, key2Found, key3Found, key4Found].filter(
+    Boolean
+  ).length;
+  const keysRemaining = 4 - keysFound;
+
+  if (keysFound === 0) {
+    return "You haven't found any keys yet. Keep exploring the rooms to find them all and unlock the door.";
+  } else if (keysFound === 1) {
+    return "You have found one key but need to find the other 3 keys.";
+  } else if (keysFound === 2) {
+    return "You have found two keys but need to find the other 2 keys.";
+  } else if (keysFound === 3) {
+    return "You have found three keys but need to find the last key.";
+  } else {
+    return "You have found all four keys. Now, find the door with four locks.";
+  }
+}
+
+function updateKeyMessage() {
+  const messageElement = document.getElementById("keyMessage");
+  if (messageElement) {
+    messageElement.textContent = generateKeyMessage();
+  }
+}
+
+const keyMessageElement = document.createElement("p");
+keyMessageElement.id = "keyMessage";
+document.body.appendChild(keyMessageElement);
+updateKeyMessage();
