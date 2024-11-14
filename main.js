@@ -134,6 +134,16 @@ function generateKeyMessage() {}
  */
 function updateKeyMessage() {}
 
+/**
+ * Displays the fourth popup by setting its display style to "flex". (message in the first Room)
+ */
+function openPopup3() {}
+
+/**
+ * Hides the fourth popup by setting its display style to "none". (close message in the first Room)
+ * */
+function closePopup3() {}
+
 /////////////////////////////////////////////////////
 window.addEventListener("DOMContentLoaded", main);
 
@@ -354,17 +364,12 @@ function loadRoom0Scene(container) {
   }
 
   const text = document.createElement("p");
-  // text.textContent = generateKeyMessage();
   text.className = "large green";
   text.style.position = "absolute";
   text.style.top = "99%";
   text.style.left = "1%";
   text.style.transform = "translateX(-50%, -50%)";
   text.style.direction = "ltr";
-
-  // const messageElement = document.createElement("p");
-  // messageElement.textContent = generateKeyMessage();
-  // messageElement.id = "keyMessage";
 
   const keysFound = [key1Found, key2Found, key3Found, key4Found].filter(
     Boolean
@@ -507,7 +512,6 @@ function loadRoom1Scene(container) {
   }
 
   const text = document.createElement("p");
-  // text.textContent = generateKeyMessage();
   text.className = "large green";
   text.style.position = "absolute";
   text.style.top = "99%";
@@ -649,7 +653,6 @@ function loadRoom2Scene(container) {
   }
 
   const text = document.createElement("p");
-  // text.textContent = generateKeyMessage();
   text.className = "large green";
   text.style.position = "absolute";
   text.style.top = "99%";
@@ -792,7 +795,6 @@ function loadRoom3Scene(container) {
   }
 
   const text = document.createElement("p");
-  // text.textContent = generateKeyMessage();
   text.className = "large green";
   text.style.position = "absolute";
   text.style.top = "99%";
@@ -937,7 +939,6 @@ function loadRoom4Scene(container) {
   }
 
   const text = document.createElement("p");
-  // text.textContent = generateKeyMessage();
   text.className = "large green";
   text.style.position = "absolute";
   text.style.top = "99%";
@@ -1083,7 +1084,6 @@ function loadFinalRoomScene(container) {
   }
 
   const text = document.createElement("p");
-  // text.textContent = generateKeyMessage();
   text.className = "large green";
   text.style.position = "absolute";
   text.style.top = "99%";
