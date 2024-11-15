@@ -1409,6 +1409,7 @@ popup2.style.height = "100%";
 popup2.style.justifyContent = "center";
 popup2.style.alignItems = "center";
 popup2.style.zIndex = "3";
+popup1.style.display = "flex";
 
 const popupContent2 = document.createElement("div");
 popupContent2.style.backgroundColor = "#333";
@@ -1530,7 +1531,7 @@ closeBtn3.onclick = closePopup3;
 
 const popupText3 = document.createElement("p");
 popupText3.innerText =
-  "You haven't found any keys yet. Keep exploring the rooms to find them all and unlock the door.";
+  "You have to find 4 keys since you are trapped in the castle. Keep exploring the rooms to find them all and unlock the door.";
 
 popupContent3.appendChild(closeBtn3);
 popupContent3.appendChild(popupText3);
