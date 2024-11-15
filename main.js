@@ -1467,7 +1467,7 @@ function generateKeyMessage() {
   const keysRemaining = 4 - keysFound;
 
   if (keysFound === 0) {
-    return "You haven't found any keys yet. Keep exploring the rooms to find them all and unlock the door.";
+    return "You haven't found 4 keys yet. Keep exploring the rooms to find them all and unlock the door.";
   } else if (keysFound === 1) {
     return "You have found one key but need to find the other 3 keys.";
   } else if (keysFound === 2) {
