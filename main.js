@@ -1338,7 +1338,6 @@ popup1.id = "popup1";
 popup1.style.display = "none";
 popup1.style.position = "fixed";
 popup1.style.top = "0";
-popup1.style.left = "0";
 popup1.style.width = "400px";
 popup1.style.height = "100%";
 popup1.style.justifyContent = "center";
