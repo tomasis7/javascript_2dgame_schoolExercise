@@ -232,6 +232,7 @@ function loadStartScene(container) {
   const text1 = document.createElement("p");
   text1.textContent = "Submit your soul to play";
   text1.className = "large green";
+  text1.style.zIndex = "3";
 
   const input = document.createElement("input");
   input.type = "text";
@@ -1272,6 +1273,7 @@ function loadFinalRoom(container) {
 //
 //
 //
+// Function to generate the message based on the number of keys found
 const popup = document.createElement("div");
 popup.id = "popup";
 popup.style.display = "none";
@@ -1330,6 +1332,7 @@ function closePopup() {
 //
 //
 //
+// Function to generate the message based on the number of keys found
 const popup1 = document.createElement("div");
 popup1.id = "popup1";
 popup1.style.display = "none";
@@ -1493,6 +1496,7 @@ function updateKeyMessage() {
 //
 //
 //
+// Function to generate the message based on the number of keys found
 const keyMessageElement = document.createElement("p");
 keyMessageElement.id = "keyMessage";
 document.body.appendChild(keyMessageElement);
