@@ -191,7 +191,11 @@ function main() {
   }
   loadStartScene(container);
 }
-
+//
+//
+//
+//
+//
 function loadStartScene(container) {
   container.innerHTML = "";
 
@@ -243,6 +247,11 @@ function loadStartScene(container) {
   container.append(text, image1, image2, text1, input);
 }
 
+//
+//
+//
+//
+//
 function loadRoom0Scene(container) {
   container.innerHTML = "";
 
@@ -392,6 +401,11 @@ function loadRoom0Scene(container) {
   container.appendChild(imageContainer);
 }
 
+//
+//
+//
+//
+//
 function loadRoom1Scene(container) {
   container.innerHTML = "";
 
@@ -532,6 +546,12 @@ function loadRoom1Scene(container) {
 
   container.appendChild(imageContainer);
 }
+
+//
+//
+//
+//
+//
 function loadRoom2Scene(container) {
   container.innerHTML = "";
 
@@ -673,6 +693,12 @@ function loadRoom2Scene(container) {
 
   container.appendChild(imageContainer);
 }
+
+//
+//
+//
+//
+//
 function loadRoom3Scene(container) {
   container.innerHTML = "";
 
@@ -821,6 +847,11 @@ function loadRoom3Scene(container) {
   container.style.flexDirection = "row";
 }
 
+//
+//
+//
+//
+//
 function loadRoom4Scene(container) {
   container.innerHTML = "";
 
@@ -965,6 +996,11 @@ function loadRoom4Scene(container) {
   container.style.flexDirection = "row";
 }
 
+//
+//
+//
+//
+//
 function loadFinalRoomScene(container) {
   container.innerHTML = "";
 
@@ -1105,6 +1141,11 @@ function loadFinalRoomScene(container) {
   container.appendChild(imageContainer);
 }
 
+//
+//
+//
+//
+//
 function handleKey1Found(container) {
   key1Found = true;
   localStorage.setItem("key1Found", "true");
@@ -1122,6 +1163,11 @@ function handleKey1Found(container) {
   }
 }
 
+//
+//
+//
+//
+//
 function handleKey2Found(keyimg2) {
   key2Found = true;
   localStorage.setItem("key2Found", "true");
@@ -1135,7 +1181,11 @@ function handleKey2Found(keyimg2) {
   keyimg2.style.transform = "translate(-50%, -50%)";
   keyimg2.style.zIndex = "1";
 }
-
+//
+//
+//
+//
+//
 function handleKey3Found(keyimg3) {
   key3Found = true;
   localStorage.setItem("key3Found", "true");
@@ -1150,6 +1200,11 @@ function handleKey3Found(keyimg3) {
   keyimg3.style.zIndex = "1";
 }
 
+//
+//
+//
+//
+//
 function handleKey4Found() {
   key4Found = true;
   localStorage.setItem("key4Found", "true");
@@ -1167,6 +1222,11 @@ function handleKey4Found() {
   });
 }
 
+//
+//
+//
+//
+//
 function loadFinalDoor(container) {
   const key1 = localStorage.getItem("key1Found");
   const key2 = localStorage.getItem("key2Found");
@@ -1186,6 +1246,11 @@ function loadFinalDoor(container) {
   }
 }
 
+//
+//
+//
+//
+//
 function loadFinalRoom(container) {
   container.innerHTML = "";
 
@@ -1202,6 +1267,11 @@ function loadFinalRoom(container) {
   container.append(finalRoomImage);
 }
 
+//
+//
+//
+//
+//
 const popup = document.createElement("div");
 popup.id = "popup";
 popup.style.display = "none";
@@ -1237,14 +1307,29 @@ popupContent.appendChild(popupText);
 popup.appendChild(popupContent);
 document.body.appendChild(popup);
 
+//
+//
+//
+//
+//
 function openPopup() {
   popup.style.display = "flex";
 }
 
+//
+//
+//
+//
+//
 function closePopup() {
   popup.style.display = "none";
 }
 
+//
+//
+//
+//
+//
 const popup1 = document.createElement("div");
 popup1.id = "popup1";
 popup1.style.display = "none";
@@ -1281,6 +1366,11 @@ popupContent1.appendChild(popupText1);
 popup1.appendChild(popupContent1);
 document.body.appendChild(popup1);
 
+//
+//
+//
+//
+//
 function openPopup1() {
   function areAllKeysFound() {
     return key1Found && key2Found && key3Found && key4Found;
@@ -1292,16 +1382,26 @@ function openPopup1() {
   }
 }
 
+//
+//
+//
+//
+//
 function closePopup1() {
   popup1.style.display = "none";
 }
 
+//
+//
+//
+//
+//
 const popup2 = document.createElement("div");
 popup2.id = "popup2";
 popup2.style.display = "none";
 popup2.style.position = "fixed";
 popup2.style.top = "0";
-popup2.style.width = "30%";
+popup2.style.width = "400px";
 popup2.style.height = "100%";
 popup2.style.justifyContent = "center";
 popup2.style.alignItems = "center";
@@ -1332,14 +1432,28 @@ popupContent2.appendChild(popupText2);
 popup2.appendChild(popupContent2);
 document.body.appendChild(popup2);
 
+//
+//
+//
+//
+//
 function openPopup2() {
   popup2.style.display = "flex";
 }
-
+//
+//
+//
+//
+//
 function closePopup2() {
   popup2.style.display = "none";
 }
 
+//
+//
+//
+//
+//
 // Function to generate the message based on the number of keys found
 function generateKeyMessage() {
   const keysFound = [key1Found, key2Found, key3Found, key4Found].filter(
@@ -1360,6 +1474,11 @@ function generateKeyMessage() {
   }
 }
 
+//
+//
+//
+//
+//
 function updateKeyMessage() {
   const messageElement = document.getElementById("keyMessage");
   if (messageElement) {
@@ -1367,6 +1486,11 @@ function updateKeyMessage() {
   }
 }
 
+//
+//
+//
+//
+//
 const keyMessageElement = document.createElement("p");
 keyMessageElement.id = "keyMessage";
 document.body.appendChild(keyMessageElement);
@@ -1377,7 +1501,7 @@ popup3.id = "popup";
 popup3.style.display = "none";
 popup3.style.position = "fixed";
 popup3.style.top = "0";
-popup3.style.width = "40%";
+popup3.style.width = "400px";
 popup3.style.height = "100%";
 popup3.style.justifyContent = "center";
 popup3.style.alignItems = "center";
@@ -1407,11 +1531,20 @@ popupContent3.appendChild(popupText3);
 popup3.appendChild(popupContent3);
 document.body.appendChild(popup3);
 
+//
+//
+//
+//
+//
 function openPopup3() {
   popupText3.innerText = generateKeyMessage();
   popup3.style.display = "flex";
 }
-
+//
+//
+//
+//
+//
 function closePopup3() {
   popup3.style.display = "none";
 }
