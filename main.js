@@ -1336,10 +1336,11 @@ popup1.style.display = "none";
 popup1.style.position = "fixed";
 popup1.style.top = "0";
 popup1.style.left = "0";
-popup1.style.width = "100%";
+popup1.style.width = "400px";
 popup1.style.height = "100%";
 popup1.style.justifyContent = "center";
 popup1.style.alignItems = "center";
+popup1.style.zIndex = "2";
 
 const popupContent1 = document.createElement("div");
 popupContent1.style.backgroundColor = "#333";
@@ -1405,6 +1406,7 @@ popup2.style.width = "400px";
 popup2.style.height = "100%";
 popup2.style.justifyContent = "center";
 popup2.style.alignItems = "center";
+popup1.style.zIndex = "2";
 
 const popupContent2 = document.createElement("div");
 popupContent2.style.backgroundColor = "#333";
@@ -1505,6 +1507,7 @@ popup3.style.width = "400px";
 popup3.style.height = "100%";
 popup3.style.justifyContent = "center";
 popup3.style.alignItems = "center";
+popup1.style.zIndex = "2";
 
 const popupContent3 = document.createElement("div");
 popupContent3.style.backgroundColor = "#333";
